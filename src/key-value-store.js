@@ -20,7 +20,10 @@ export class KeyValueStore {
     const fileName = `${keyHash}.json`
     // Creates the file if it does not exist or overwrites it if it does exist.
     // Sets the file content to the JSON for the entry.
-    fs.writeFileSync(path.resolve(this.dbPath, fileName), JSON.stringify([value, key]))
+    fs.writeFileSync(
+      path.resolve(this.dbPath, fileName),
+      JSON.stringify([value, key])
+    )
   }
 
   get(key) {
@@ -42,7 +45,11 @@ export class KeyValueStore {
 
     // Verify the key matches
     if (entry[KEY_INDEX] !== key) {
-      throw new Error(`Keys do not match: '${entry[KEY_INDEX]}' !== '${key}' -- probably a hash collision.`)
+      throw new Error(
+        `Keys do not match: '${
+          entry[KEY_INDEX]
+        }' !== '${key}' -- probably a hash collision.`
+      )
     }
 
     // Return the value for the key.
