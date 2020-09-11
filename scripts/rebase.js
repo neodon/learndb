@@ -53,6 +53,6 @@ for (const { branch, rebaseTarget } of rebaseEntries.slice(startIndex)) {
   execMustSucceed(`git co ${branch}`)
   execMustSucceed('git fetch')
   execMustSucceed('git status')
-  execMustSucceed(`git rebase --onto ${rebaseTarget} origin/${rebaseTarget}`)
+  execMustSucceed(`git rebase origin/${rebaseTarget}`)
   execMustSucceed('git status')
 }
